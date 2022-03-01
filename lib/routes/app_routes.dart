@@ -7,11 +7,8 @@ class AppRoutes{
   static const String initialRoute = 'home';
   
   static final menuOptions = <ItemMenu>[
-    ItemMenu(label: 'Home Screen', route: 'home', icon: Icons.house, screen: const HomeScreen()),
-    
-    ItemMenu(label: 'Registro', route: 'registro_usuario', icon: Icons.fingerprint, screen: const RegistroScreen()),
-    
-    
+    ItemMenu(label: 'Home Screen', route: 'home', icon: Icons.house, screen: const LoginScreen()),
+    ItemMenu(label: 'Registro', route: 'registro_usuario', icon: Icons.fingerprint, screen: const RegistroScreen())  
   ];
 
   static final countMenuOptions = menuOptions.length;
@@ -22,8 +19,7 @@ class AppRoutes{
     for (final item in menuOptions){
       appRoutes.addAll({item.route : (BuildContext context) => item.screen});
     }
-
-
+    
     return appRoutes;
   }
 }

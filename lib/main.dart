@@ -1,95 +1,57 @@
 import 'package:flutter/material.dart';
 import 'package:merceria_fat/routes/app_routes.dart';
-import 'package:merceria_fat/screens/screens.dart';
-import 'package:merceria_fat/themes/app_theme.dart';
+
 
 void main() => runApp(const MyApp());
-  class MyApp extends StatefulWidget {
-  const MyApp ({Key? key}) :super(key: key);
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-class _MyAppState extends State<MyApp> {
-  int _paginaActual = 0;
-
-  final List<Widget> _paginas = [
-    const HomeScreen(),
-    const ClubScreen(),
-    const TorneosScreen()
-  ];
-
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    
-    var iconos = 
-      [
-        const BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-        const BottomNavigationBarItem(icon: Icon(Icons.sports),label : "Clubes"),
-        const BottomNavigationBarItem(icon: Icon(Icons.emoji_events), label: "Torneos")
-      ];
-
-
     return MaterialApp(
-      
-      routes: AppRoutes.getRoutes(),
+      title: 'Material App',
       debugShowCheckedModeBanner: false,
-      title: 'Finding A Tornament',
-      home: Scaffold(
-        
+      
+      home: 
+      Scaffold(
         appBar: AppBar(
-          title: const Text('Finding A Tornament'),
-  ),
-  body: 
-  _paginas[_paginaActual],
-        bottomNavigationBar: BottomNavigationBar(
-          onTap: (index){
-            setState(() {
-              _paginaActual =index;
-            });
-          },
-          currentIndex: _paginaActual,
-          items: iconos,
-        ),
-  
-
-  drawer: Drawer(
-    child: ListView(
-      padding: EdgeInsets.zero,
-      children:    <Widget>[
-        
-        DrawerHeader(
-          margin:  EdgeInsets.only(bottom :5),
-          decoration: BoxDecoration(
-            color: Color(0xFF3BAEBF)
-          ), child: null,
-        ),
-        ListTile(
-          leading: Icon(Icons.account_circle),
-          title: Text('IniciarSesion'),
-        ),
-        ListTile(
-          leading: Icon(Icons.settings),
-          title: Text('Configuración'),
-        ),
-        ListTile(
-          leading:  Icon(Icons.login),
-          title:  Text('Login'),
-        ),
-        ListTile (
-          leading:  Icon(Icons.app_registration),
-          title:  Text('Registro'), 
-          onTap:()=> Navigator.popAndPushNamed(context, "registro_usuario"),
-        ),
-        
-      ],
-    ),
+          title: const Text('Finding a Tournament'),
+          centerTitle: true,
+          backgroundColor: const Color(0xFF1C5159),
           
         ),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              const DrawerHeader(
+                margin: EdgeInsets.zero,
+                decoration: BoxDecoration(
+                  color: Color(0xFF3BAEBF)
+                ),
+                child:null,
+              ),
+              SizedBox(
+                width: 100.0,
+                height: 500.0,
+                child: ListView.separated(
+                itemBuilder: (context, index) => ListTile(
+                  title: Text(AppRoutes.menuOptions[index].label),
+                  leading: Icon(AppRoutes.menuOptions[index].icon),
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoutes.menuOptions[index].route);}
+                ),
+                separatorBuilder: (context, index) => const Divider(),
+                itemCount: AppRoutes.countMenuOptions,
+              ),)
+              
+              
+            ],
+          ),
+        ),
       ),
-      theme: AppTheme.lightTheme,
+      routes: AppRoutes.getRoutes(),
     );
   }
 }
-

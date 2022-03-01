@@ -8,3 +8,4 @@ class RegistroScreen extends StatelessWidget {
     return Container();
   }
 }
+

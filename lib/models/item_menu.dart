@@ -9,5 +9,5 @@ class ItemMenu{
       {required this.label,
       required this.route,
       required this.icon,
-        required this.screen});
+      required this.screen});
 }
