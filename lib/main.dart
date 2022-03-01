@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:merceria_fat/routes/app_routes.dart';
 import 'package:merceria_fat/screens/screens.dart';
 import 'package:merceria_fat/themes/app_theme.dart';
 
@@ -31,6 +32,8 @@ class _MyAppState extends State<MyApp> {
 
 
     return MaterialApp(
+      
+      routes: AppRoutes.getRoutes(),
       debugShowCheckedModeBanner: false,
       title: 'Finding A Tornament',
       home: Scaffold(
@@ -49,12 +52,12 @@ class _MyAppState extends State<MyApp> {
           currentIndex: _paginaActual,
           items: iconos,
         ),
-
+  
 
   drawer: Drawer(
     child: ListView(
       padding: EdgeInsets.zero,
-      children: const <Widget>[
+      children:    <Widget>[
         
         DrawerHeader(
           margin:  EdgeInsets.only(bottom :5),
@@ -70,6 +73,16 @@ class _MyAppState extends State<MyApp> {
           leading: Icon(Icons.settings),
           title: Text('Configuración'),
         ),
+        ListTile(
+          leading:  Icon(Icons.login),
+          title:  Text('Login'),
+        ),
+        ListTile (
+          leading:  Icon(Icons.app_registration),
+          title:  Text('Registro'), 
+          onTap:()=> Navigator.popAndPushNamed(context, "registro_usuario"),
+        ),
+        
       ],
     ),
           
