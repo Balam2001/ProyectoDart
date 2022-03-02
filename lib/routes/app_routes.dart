@@ -7,7 +7,7 @@ class AppRoutes{
   static const String initialRoute = 'home';
   
   static final menuOptions = <ItemMenu>[
-    ItemMenu(label: 'Home Screen', route: 'home', icon: Icons.house, screen: const LoginScreen()),
+    ItemMenu(label: 'Login', route: 'login', icon: Icons.account_circle, screen: const LoginScreen()),
     ItemMenu(label: 'Registro', route: 'registro_usuario', icon: Icons.fingerprint, screen: const RegistroScreen())  
   ];
 

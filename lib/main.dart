@@ -47,6 +47,7 @@ class _MyAppState extends State<MyApp> {
                 ),
                 child:null,
               ),
+              
               SizedBox(
                 height: 500.0,
                 child: ListView.separated(
@@ -67,7 +68,8 @@ class _MyAppState extends State<MyApp> {
         bottomNavigationBar:  BottomNavigationBar(
           items:[
             const BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            const BottomNavigationBarItem(icon: Icon(Icons.supervised_user_circle), label: 'Torneo')
+            const BottomNavigationBarItem(icon: Icon(Icons.sports), label: 'Clubes'), 
+            const BottomNavigationBarItem(icon: Icon(Icons.emoji_events), label: 'Torneo')
           ],
           onTap: (index){
             setState(() {
