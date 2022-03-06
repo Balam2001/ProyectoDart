@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AppTheme{
-  static const String _hexCode = '0xFF2F8B99';
-  static final Color primaryColor = Color(int.parse(_hexCode));
+  static  Color primaryColor = const Color(0xFF2F8B99);
+  static Color secundaryColor = const Color(0xFF1C5159);
   static const double globalElevation = 0;
 
   static final ThemeData lightTheme = ThemeData.light().copyWith(
-    primaryColor: Color(int.parse(_hexCode)),
+    primaryColor: const Color(0xFF2F8B99),
     appBarTheme:  AppBarTheme(
       backgroundColor: primaryColor,
       centerTitle: false,
@@ -14,7 +14,7 @@ class AppTheme{
     
 
   static final ThemeData darkTheme = ThemeData.dark().copyWith(
-    primaryColor: Color(int.parse(_hexCode)),
+    primaryColor: const Color(0xFF2F8B99),
     appBarTheme: AppBarTheme(
       backgroundColor: primaryColor,
       centerTitle: false,

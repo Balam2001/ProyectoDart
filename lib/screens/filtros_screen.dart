@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Filtros_screen extends StatelessWidget {
-  const Filtros_screen({Key? key}) : super(key: key);
+class Filtrosscreen extends StatelessWidget {
+  const Filtrosscreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

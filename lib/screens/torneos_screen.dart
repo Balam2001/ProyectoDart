@@ -9,6 +9,7 @@ class TorneosScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Torneos'),
+        centerTitle: true,
       ),
     );
   }

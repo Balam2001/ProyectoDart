@@ -4,11 +4,9 @@ import 'package:merceria_fat/screens/screens.dart';
 import 'package:merceria_fat/models/item_menu.dart';
 
 class AppRoutes{
-  static const String initialRoute = 'home';
-  
   static final menuOptions = <ItemMenu>[
-    ItemMenu(label: 'Login', route: 'login', icon: Icons.account_circle, screen: const LoginScreen()),
-    ItemMenu(label: 'Registro', route: 'registro_usuario', icon: Icons.fingerprint, screen: const RegistroScreen())  
+    ItemMenu(label: 'Iniciar sesión', route: 'login', icon: Icons.account_circle, screen: const LoginScreen()),
+    ItemMenu(label: 'Configuración', route: 'registro_usuario', icon: Icons.settings, screen: const RegistroScreen())  
   ];
 
   static final countMenuOptions = menuOptions.length;

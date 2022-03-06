@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:merceria_fat/routes/navbar_routes.dart';
+import 'package:merceria_fat/themes/app_theme.dart';
+import 'package:merceria_fat/widgets/bottom_navbar.dart';
 import 'package:merceria_fat/routes/app_routes.dart';
-import 'package:merceria_fat/screens/screens.dart';
-
-
+import 'package:merceria_fat/widgets/drawer_widget.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
@@ -13,22 +15,27 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int _paginActual = 0;
+  int index = 0;
+  BottomNavBar ?myBNB;
 
-  final List<Widget> _paginas = [
-    const HomeScreen(),
-    const ClubScreen(),
-    const TorneosScreen()
-  ];
+  @override
+  void initState() {
+    myBNB = BottomNavBar(currentIndex: (i){
+      setState(() {
+        index = i;
+      });
+    });
+    super.initState();
+  }
 
-  
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
     return MaterialApp(
       title: 'Material App',
       debugShowCheckedModeBanner: false,
       
-      home: 
+      home:
       Scaffold(
         appBar: AppBar(
           title: const Text('Finding a Tournament'),
@@ -36,50 +43,12 @@ class _MyAppState extends State<MyApp> {
           backgroundColor: const Color(0xFF1C5159),
           
         ),
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              const DrawerHeader(
-                margin: EdgeInsets.zero,
-                decoration: BoxDecoration(
-                  color: Color(0xFF3BAEBF)
-                ),
-                child:null,
-              ),
-              
-              SizedBox(
-                height: 500.0,
-                child: ListView.separated(
-                itemBuilder: (context, index) => ListTile(
-                  title: Text(AppRoutes.menuOptions[index].label),
-                  leading: Icon(AppRoutes.menuOptions[index].icon),
-                  onTap: () {
-                    Navigator.pushNamed(context, AppRoutes.menuOptions[index].route);}
-                ),
-                separatorBuilder: (context, index) => const Divider(),
-                itemCount: AppRoutes.countMenuOptions,
-              ),
-              )
-            ],
-          ),
-        ),
-        body: _paginas[_paginActual],
-        bottomNavigationBar:  BottomNavigationBar(
-          items:[
-            const BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            const BottomNavigationBarItem(icon: Icon(Icons.sports), label: 'Clubes'), 
-            const BottomNavigationBarItem(icon: Icon(Icons.emoji_events), label: 'Torneo')
-          ],
-          onTap: (index){
-            setState(() {
-              _paginActual =index;
-            });
-          },
-          currentIndex: _paginActual,
-        ),
+        drawer: const DrawerWidget(),
+        bottomNavigationBar: myBNB,
+        body: NavBarRoutes(index: index)
       ),
       routes: AppRoutes.getRoutes(),
+      theme: AppTheme.lightTheme,
     );
   }
 }

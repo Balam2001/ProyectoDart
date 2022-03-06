@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:merceria_fat/themes/app_theme.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class HomeScreen extends StatelessWidget {
     return  Scaffold(
         appBar: AppBar(
         title: const Text('Home'),
-        backgroundColor: colorbarra,
+        backgroundColor: AppTheme.primaryColor,
         centerTitle: true,
         ),
       
