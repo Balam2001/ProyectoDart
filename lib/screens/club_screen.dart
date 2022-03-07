@@ -22,7 +22,7 @@ class ClubScreen extends StatelessWidget {
             child: const SizedBox(
               width: 100,
               child: Text(
-                'Chicago Bulls',
+                'Yankees NY',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize : 30,
@@ -32,8 +32,9 @@ class ClubScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height:20),
+
           Image.network(
-          'https://www.pngplay.com/wp-content/uploads/13/Chicago-Bulls-Background-PNG-Image.png',
+          'https://cdn.freebiesupply.com/images/large/2x/new-york-yankees-ny-logo.png',
           width: 300,
           height: 200,
           alignment: Alignment.center,

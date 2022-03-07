@@ -93,7 +93,7 @@ class LoginScreen extends StatelessWidget {
                     const SizedBox(height: 60.0,),
                     InkWell(
                       onTap: (){
-                        Navigator.pop(context);
+                        Navigator.pushNamed(context, 'home');
                       },
                       child: Container(
                         child: Row(
@@ -127,16 +127,17 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(height :10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const <Widget>[
-                Text('¿Es tu primera vez?',
+              children:  <Widget>[
+                const Text('¿Es tu primera vez?',
                 style: TextStyle(
                   color: Color(0xFF1C5159),
                 ),
                 ),
-                Text(' Registrate aquí', style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF43C5D9),
-                ))
+                TextButton(
+                  onPressed: (){
+                    Navigator.pushNamed(context, 'registro_usuario');
+                  }, 
+                  child: const Text('Registrese aquí'))
               ],
             )
           ],

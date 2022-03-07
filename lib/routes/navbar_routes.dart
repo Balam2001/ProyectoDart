@@ -9,7 +9,7 @@ const NavBarRoutes({Key? key, required this.index}) : super(key: key);
     List<Widget> pages =[
       const HomeScreen(),
       const ClubesScreen(),
-      const ClubScreen()
+      const TorneosScreen()
     ];
     return pages[index];
   }

@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:merceria_fat/themes/app_theme.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -12,60 +11,15 @@ class HomeScreen extends StatelessWidget {
     return  Scaffold(
         appBar: AppBar(
         title: const Text('Home'),
-        backgroundColor: AppTheme.primaryColor,
+        backgroundColor: colorbarra,
         centerTitle: true,
         ),
+        
+
+        body: const Text(
+          'Hola mundo...'
+        )
       
-        body: Column(
-          children: <Widget>[
-            const Image(
-              image: NetworkImage('https://cdn-icons-png.flaticon.com/512/47/47847.png'),
-              width: 80,
-              height: 80,
-            
-            ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: const Text(
-              'Mis Torneos',
-              textAlign: TextAlign.center,
-              style:  TextStyle(
-                fontSize: 40,
-              ),
-            ),
-          ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: const Text(
-              '-Torneo 1',
-              textAlign: TextAlign.center,
-              style:  TextStyle(
-                fontSize: 20,
-              ),
-            ),
-          ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: const Text(
-              '-Torneo 2',
-              textAlign: TextAlign.center,
-              style:  TextStyle(
-                fontSize: 20,
-              ),
-            ),
-          ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: const Text(
-              '-Torneo 3',
-              textAlign: TextAlign.center,
-              style:  TextStyle(
-                fontSize: 20,
-              ),
-            ),
-          )
-        ],
-      ),
     );
   }
 }

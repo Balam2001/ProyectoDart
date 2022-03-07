@@ -30,6 +30,7 @@ class _ClubesScreenState extends State<ClubesScreen> {
                 subtitle:  const Text("Este es una breve descripción"),
                 leading: Image.network('https://user-images.githubusercontent.com/43202228/57966812-40ee8580-7957-11e9-800e-23e9a80aeca5.png'),
                 onTap: (){
+                  Navigator.pushNamed(context, 'club_screen');
                   
                 },
               ),
@@ -40,7 +41,9 @@ class _ClubesScreenState extends State<ClubesScreen> {
                 title: const Text ('Club 2'),
                 subtitle:  const Text("Este es una breve descripción"),
                 leading: Image.network('https://user-images.githubusercontent.com/43202228/57966812-40ee8580-7957-11e9-800e-23e9a80aeca5.png'),
-                onTap: (){},
+                onTap: (){
+                  Navigator.pushNamed(context, 'club_screen');
+                },
               ),
             ),
             Container(
@@ -49,7 +52,9 @@ class _ClubesScreenState extends State<ClubesScreen> {
                 title: const Text ('Club 3'),
                 subtitle:  const Text("Este es una breve descripción"),
                 leading: Image.network('https://user-images.githubusercontent.com/43202228/57966812-40ee8580-7957-11e9-800e-23e9a80aeca5.png'),
-                onTap: (){},
+                onTap: (){
+                  Navigator.pushNamed(context, 'club_screen');
+                },
               ),
             ),
           
