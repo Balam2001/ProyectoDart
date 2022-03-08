@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:merceria_fat/themes/app_theme.dart';
 
 class ClubScreen extends StatelessWidget {
   const ClubScreen({Key? key}) : super(key: key);
@@ -39,20 +40,16 @@ class ClubScreen extends StatelessWidget {
           height: 200,
           alignment: Alignment.center,
           ),
-          const SizedBox(height:20),
+          const SizedBox(height:20, width: 20,),
           Container(
-            margin: const EdgeInsets.only(left: 100, right: 100),
-            decoration: const BoxDecoration(
-              color: Colors.amber
+            margin: const EdgeInsets.only(left: 80, right: 80),
+            height: 5.0,
+            decoration: BoxDecoration(
+              color: AppTheme.primaryColor
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const <Widget>[
-                Text('Hola',),
-                Text('Hola2',)
-              ],
+            child: const Text(''),
             ),
-          )
+          
           
         ],
       ),

@@ -16,10 +16,10 @@ class _ClubesScreenState extends State<ClubesScreen> {
       appBar: AppBar(
         title: const Text('Clubes'),
         centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.filter_alt),
-          onPressed: () {},
-          ),
+        titleTextStyle: const TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 20.0,
+        ),
       ),
       body: ListView(
         children: <Widget>[

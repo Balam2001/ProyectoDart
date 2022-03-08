@@ -93,7 +93,7 @@ class LoginScreen extends StatelessWidget {
                     const SizedBox(height: 60.0,),
                     InkWell(
                       onTap: (){
-                        Navigator.pushNamed(context, 'home');
+                        Navigator.pop(context);
                       },
                       child: Container(
                         child: Row(
