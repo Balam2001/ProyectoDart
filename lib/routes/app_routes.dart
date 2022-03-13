@@ -6,6 +6,7 @@ import 'package:merceria_fat/models/item_menu.dart';
 class AppRoutes{
   static final menuOptions = <ItemMenu>[
     ItemMenu(label: 'Iniciar sesión', route: 'login', icon: Icons.account_circle, screen: const LoginScreen()),
+    ItemMenu(label: 'Perfil', route: 'perfil', icon: Icons.account_circle_rounded, screen: const PerfilUsuario()),
     ItemMenu(label: 'Configuración', route: 'configuracion', icon: Icons.settings, screen: const ConfigScreen()),
   ];
 

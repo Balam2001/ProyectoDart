@@ -18,7 +18,7 @@ class _ClubesScreenState extends State<ClubesScreen> {
         centerTitle: true,
         titleTextStyle: const TextStyle(
           fontWeight: FontWeight.bold,
-          fontSize: 20.0,
+          fontSize: 25.0,
         ),
       ),
       body: ListView(
@@ -57,6 +57,8 @@ class _ClubesScreenState extends State<ClubesScreen> {
                 },
               ),
             ),
+
+            
           
         ],
       ),

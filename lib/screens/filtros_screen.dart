@@ -12,19 +12,8 @@ class Filtrosscreen extends StatelessWidget {
         title: const Text('Filtros')
       ),
       body: Column(children:const <Widget>[
-  
-        TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: 'Nombre',
-          ),
-        ),
-        TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: 'Teléfono'
-          ),
-        ),
+
+        
       ]),
       
     );

@@ -13,6 +13,10 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
         title: const Text('Home'),
         backgroundColor: AppTheme.primaryColor,
+        titleTextStyle: const TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 25.0,
+        ),
         centerTitle: true,
         ),
         
