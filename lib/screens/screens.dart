@@ -7,6 +7,7 @@ export 'package:merceria_fat/screens/registro_screen.dart';
 export 'package:merceria_fat/screens/config_screen.dart';
 export 'package:merceria_fat/screens/club_screen.dart';
 export 'package:merceria_fat/screens/perfilusua_screen.dart';
+export 'package:merceria_fat/screens/torneo_screen.dart';
 
 
 

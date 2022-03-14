@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:merceria_fat/themes/app_theme.dart';
 
@@ -11,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: AppBar(
-        title: const Text('Home'),
+        title: const Text('Hola Usuario'),
         backgroundColor: AppTheme.primaryColor,
         titleTextStyle: const TextStyle(
           fontWeight: FontWeight.bold,
@@ -21,25 +20,59 @@ class HomeScreen extends StatelessWidget {
         ),
         
 
-        body:
-        ListView(
+        body: ListView(
           children: <Widget>[
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const <Widget>[
-                Text('Hola mundo')
-              ],
+            const SizedBox(height: 40,),
+            const Text(
+              'Mis torneos',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize:30.0,
+              )
+              ),
+            const SizedBox(height: 20),
+            Image.asset(
+              'lib/images/trofeo.png',
+              width: 200,
+              height: 200,
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const <Widget>[
-                Text('hola mundo 2'),
-                Text('')
-              ],
-            )
+            Divider(
+              height: 40,
+              thickness: 5,
+              indent: 50,
+              endIndent: 50,
+              color: AppTheme.primaryColor,
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
+              child: ListTile(
+                title: const Text ('Torneo 1'),
+                subtitle:  const Text("Este es una breve descripción"),
+                leading: Image.network('https://user-images.githubusercontent.com/43202228/57966812-40ee8580-7957-11e9-800e-23e9a80aeca5.png'),
+                onTap: (){
+                  Navigator.pushNamed(context, 'torneo');
+                },
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
+              child: ListTile(
+                title: const Text ('Torneo 1'),
+                subtitle:  const Text("Este es una breve descripción"),
+                leading: Image.network('https://user-images.githubusercontent.com/43202228/57966812-40ee8580-7957-11e9-800e-23e9a80aeca5.png'),
+                onTap: (){
+                  Navigator.pushNamed(context, 'torneo');
+                },
+              ),
+            ),
+            
+
+
+              
           ],
+
+
         )
-      
     );
   }
 }
