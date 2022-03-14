@@ -10,7 +10,16 @@ class AppTheme{
     appBarTheme:  AppBarTheme(
       backgroundColor: primaryColor,
       centerTitle: false,
-      elevation: globalElevation));
+      elevation: globalElevation),
+      inputDecorationTheme: InputDecorationTheme(
+        iconColor: primaryColor,
+        prefixIconColor: primaryColor,
+        labelStyle: TextStyle(color: primaryColor),
+        border: const OutlineInputBorder(
+          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10),topRight: Radius.circular(10))
+        )
+        
+      ));
     
 
   static final ThemeData darkTheme = ThemeData.dark().copyWith(

@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
     return MaterialApp(
-      title: 'Material App',
+      title: 'FAT',
       debugShowCheckedModeBanner: false,
       
       home:

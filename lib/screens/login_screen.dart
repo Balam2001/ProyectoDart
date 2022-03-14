@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:merceria_fat/themes/app_theme.dart';
+import 'package:merceria_fat/widgets/custom_form_field.dart';
+
 
 
 class LoginScreen extends StatelessWidget {
@@ -7,18 +9,18 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+final Map<String, String> formValuesLogin = {
+    'Correo' : '',
+    'Contraseña' : ''
+    };
+
+    final GlobalKey<FormState> myFormKey = GlobalKey<FormState>();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppTheme.primaryColor,
       ),
-      body: GestureDetector(
-        onTap: (){
-          final FocusScopeNode focus = FocusScope.of(context);
-          if(!focus.hasPrimaryFocus && focus.hasFocus){
-            FocusManager.instance.primaryFocus?.unfocus();
-          }
-        },
-        child: ListView(
+      body: 
+        ListView(
           children: [
             const SizedBox(height: 80),
             Padding(
@@ -28,99 +30,91 @@ class LoginScreen extends StatelessWidget {
                   color: AppTheme.secundaryColor,
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      child: const Text('Bienvenido', style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
-                        color: Colors.white)
+                child: Form(
+                  key: myFormKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        child: const Text('Bienvenido', style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25,
+                          color: Colors.white)
+                        ),
                       ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(5),
-                      child: const Text('Ingrese sus datos',style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.white
-                      ),),
-                    ),
-                    const SizedBox(height: 30),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 0, horizontal: 30.0),
-                      child: TextField(
-                        autofocus: false,
-                        decoration: InputDecoration(
+                      Container(
+                        padding: const EdgeInsets.all(5),
+                        child: const Text('Ingrese sus datos',style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.white
+                        ),),
+                      ),
+                      const SizedBox(height: 30),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 30.0),
+                        child: CustomFormField(
                           hintText: 'Correo',
-                          prefixIcon: Icon(Icons.person),
-                          contentPadding: EdgeInsets.all(10),
-                          hintStyle: TextStyle(
-                            color: Colors.grey
-                          ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.grey,
-                              width: 2.0
-                            )
-                          )
-                        ),
+                          keyboardType: TextInputType.emailAddress,
+                          prefixIcon: Icons.email,
+                          propertyName: 'Correo',
+                          formValues: formValuesLogin,
+                          textStyle: const TextStyle(
+                            color: Colors.white
+                          )),
                       ),
-                    ),
-                    const SizedBox(height: 40,),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 0, horizontal: 30.0),
-                      child: TextField(
-                        autofocus: false,
-                        obscureText: true,
-                        obscuringCharacter : '•',
-                        decoration: InputDecoration(
+                      const SizedBox(height: 10,),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 30.0),
+                        child: CustomFormField(
                           hintText: 'Contraseña',
-                          prefixIcon: Icon(Icons.security),
-                          contentPadding: EdgeInsets.all(10),
-                          hintStyle: TextStyle(
-                            color: Colors.grey
+                          maxLength: 16,
+                          keyboardType: TextInputType.visiblePassword,
+                          prefixIcon: Icons.password,
+                          obscureText: true,
+                          propertyName: 'Contraseña',
+                          formValues: formValuesLogin,
+                          textStyle: const TextStyle(
+                            color: Colors.white
+                          ))
+                      ),
+                      const SizedBox(height: 60.0,),
+                      InkWell(
+                        onTap: (){
+                          bool isValidate = myFormKey.currentState?.validate() ?? false;
+                              //Cuando tu formulario sea inconrrecto lanzar instruciones
+                              if (isValidate) {
+                                // ignore: avoid_print
+                                print(formValuesLogin);
+                              }
+                        },
+                        child: Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Padding(
+                                padding: EdgeInsets.all(20),
+                                child: Text('Iniciar Sesión', style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                                ),
+                              )
+                            ],
                           ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.grey,
-                              width: 2.0
+                          decoration: BoxDecoration(
+                            color: AppTheme.primaryColor,
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20)
                             )
-                          )
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 60.0,),
-                    InkWell(
-                      onTap: (){
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.all(20),
-                              child: Text('Iniciar Sesión', style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                              ),
-                            )
-                          ],
-                        ),
-                        decoration: BoxDecoration(
-                          color: AppTheme.primaryColor,
-                          borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(20),
-                            bottomRight: Radius.circular(20)
-                          )
-                        ),
-                      ),
-                    ),
-                  ],
-                  
+                    ],
+                    
+                  ),
                 ),
               ),
             ),
@@ -142,7 +136,6 @@ class LoginScreen extends StatelessWidget {
             )
           ],
         ),
-      ),
-    );
+      );
   }
 }

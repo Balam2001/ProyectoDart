@@ -33,7 +33,6 @@ class ClubScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height:20),
-
           Image.network(
           'https://cdn.freebiesupply.com/images/large/2x/new-york-yankees-ny-logo.png',
           width: 300,
