@@ -13,7 +13,8 @@ class AppRoutes{
     ItemMenu(label: 'Registro Usuario', route:'registro_usuario', icon: Icons.account_circle, screen: const RegistroScreen()),
     ItemMenu(label: 'Club', route: 'club_screen', icon: Icons.access_alarm_sharp, screen: const ClubScreen()),
     ItemMenu(label: 'Home', route: 'home', icon: Icons.house, screen: const HomeScreen()),
-    ItemMenu(label: 'Torneo', route: 'torneo', icon: Icons.person , screen: const TorneoScreen())
+    ItemMenu(label: 'Torneo', route: 'torneo', icon: Icons.person , screen: const TorneoScreen()),
+    ItemMenu(label: 'Filtros', route: 'filtros', icon: Icons.filter, screen: const FiltrosScreen()),
 
   ];
 

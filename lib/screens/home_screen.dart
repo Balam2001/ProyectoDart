@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
               ),
             const SizedBox(height: 20),
             Image.asset(
-              'lib/images/trofeo.png',
+              'assets/images/tournament.png',
               width: 200,
               height: 200,
             ),
@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
               child: ListTile(
                 title: const Text ('Torneo 1'),
                 subtitle:  const Text("Este es una breve descripción"),
-                leading: Image.network('https://user-images.githubusercontent.com/43202228/57966812-40ee8580-7957-11e9-800e-23e9a80aeca5.png'),
+                leading: Image.asset('assets/images/trofeo.png'),
                 onTap: (){
                   Navigator.pushNamed(context, 'torneo');
                 },
@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
               child: ListTile(
                 title: const Text ('Torneo 1'),
                 subtitle:  const Text("Este es una breve descripción"),
-                leading: Image.network('https://user-images.githubusercontent.com/43202228/57966812-40ee8580-7957-11e9-800e-23e9a80aeca5.png'),
+                leading:Image.asset('assets/images/trofeo.png'), 
                 onTap: (){
                   Navigator.pushNamed(context, 'torneo');
                 },

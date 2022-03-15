@@ -9,12 +9,12 @@ class ConfigScreen extends StatefulWidget {
 class _ConfigScreenState extends State<ConfigScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+          return Scaffold(
       appBar: AppBar(
         title: const Text('Configuración'),
         centerTitle: true,
       ),
-      
     );
+    
   }
 }

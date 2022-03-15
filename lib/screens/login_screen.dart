@@ -13,7 +13,6 @@ final Map<String, String> formValuesLogin = {
     'Correo' : '',
     'Contraseña' : ''
     };
-
     final GlobalKey<FormState> myFormKey = GlobalKey<FormState>();
     return Scaffold(
       appBar: AppBar(

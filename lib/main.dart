@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:merceria_fat/routes/navbar_routes.dart';
+import 'package:merceria_fat/models/theme_model.dart';
 import 'package:merceria_fat/themes/app_theme.dart';
 import 'package:merceria_fat/widgets/bottom_navbar.dart';
 import 'package:merceria_fat/routes/app_routes.dart';
 import 'package:merceria_fat/widgets/drawer_widget.dart';
+import 'package:provider/provider.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
@@ -31,7 +33,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
-    return MaterialApp(
+    
+    return ChangeNotifierProvider(
+      create: (_) => ThemeModel(),
+      child: Consumer<ThemeModel>(
+        builder: (context, ThemeModel themeNotifier, child){
+      return MaterialApp(
       title: 'FAT',
       debugShowCheckedModeBanner: false,
       
@@ -41,6 +48,15 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Finding a Tournament'),
           centerTitle: true,
           backgroundColor: const Color(0xFF1C5159),
+          actions: [IconButton(
+                icon: Icon(themeNotifier.isDark
+                    ? Icons.nightlight_round
+                    : Icons.wb_sunny),
+                onPressed: () {
+                  themeNotifier.isDark
+                      ? themeNotifier.isDark = false
+                      : themeNotifier.isDark = true;
+                })],
           
         ),
         drawer: const DrawerWidget(),
@@ -48,7 +64,11 @@ class _MyAppState extends State<MyApp> {
         body: NavBarRoutes(index: index)
       ),
       routes: AppRoutes.getRoutes(),
-      theme: AppTheme.lightTheme,
+      theme: themeNotifier.isDark ? AppTheme.darkTheme : AppTheme.lightTheme ,
     );
+        }
+      )
+    );
+    
   }
 }
