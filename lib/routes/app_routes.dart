@@ -4,9 +4,8 @@ import 'package:merceria_fat/models/item_menu.dart';
 
 class AppRoutes{
   static final menuOptions = <ItemMenu>[
-    ItemMenu(label: 'Iniciar sesión', route: 'login', icon: Icons.account_circle, screen: const LoginScreen()),
-    ItemMenu(label: 'Perfil', route: 'perfil', icon: Icons.account_circle_rounded, screen: const PerfilUsuario()),
-    ItemMenu(label: 'Configuración', route: 'configuracion', icon: Icons.settings, screen: const ConfigScreen()),
+    ItemMenu(label: 'Iniciar sesión', route: 'login', icon: Icons.login, screen: const LoginScreen()),
+    ItemMenu(label: 'Perfil', route: 'perfil', icon: Icons.person, screen: const PerfilUsuario()),
   ];
 
   static final navOptions = <ItemMenu>[
@@ -15,7 +14,7 @@ class AppRoutes{
     ItemMenu(label: 'Home', route: 'home', icon: Icons.house, screen: const HomeScreen()),
     ItemMenu(label: 'Torneo', route: 'torneo', icon: Icons.person , screen: const TorneoScreen()),
     ItemMenu(label: 'Filtros', route: 'filtros', icon: Icons.filter, screen: const FiltrosScreen()),
-
+    ItemMenu(label: 'Servicio', route: 'servicio', icon: Icons.abc, screen: const ServicioScreen()),
   ];
 
   static final countMenuOptions = menuOptions.length;

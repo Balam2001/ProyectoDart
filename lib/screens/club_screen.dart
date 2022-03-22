@@ -13,25 +13,7 @@ class ClubScreen extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          const SizedBox(height:50),
-          Container(
-            decoration: BoxDecoration(
-              color: const Color(0xFF3BAEBF),
-              borderRadius: BorderRadius.circular(20)
-            ),
-            margin: const EdgeInsets.only(left: 100, right: 100),
-            child: const SizedBox(
-              width: 100,
-              child: Text(
-                'Yankees NY',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize : 30,
-                  fontWeight: FontWeight.bold
-                ),
-                ),
-            ),
-          ),
+          const SizedBox(height:30),
           const SizedBox(height:20),
           Image.network(
           'https://cdn.freebiesupply.com/images/large/2x/new-york-yankees-ny-logo.png',
@@ -40,15 +22,139 @@ class ClubScreen extends StatelessWidget {
           alignment: Alignment.center,
           ),
           const SizedBox(height:20, width: 20,),
+          const SizedBox(height:20),
+          Text('Detalles',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            
+          ),
+          ),
+          Divider(
+            height: 20,
+            thickness: 5,
+            indent: 50,
+            endIndent: 50,
+            color: AppTheme.secundaryColor,
+          ),
           Container(
-            margin: const EdgeInsets.only(left: 80, right: 80),
-            height: 5.0,
-            decoration: BoxDecoration(
-              color: AppTheme.primaryColor
+            padding: EdgeInsets.only(left: 50, right: 50),
+            child: Column(
+              children: [
+                ListTile(
+                  title: Text(
+                    'NY Yankees',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold
+                    ),
+                  ),
+                  subtitle: Text(
+                    'Nombre'),
+                ),
+                ListTile(
+                  title: Text(
+                    'Calle 50 Morelos',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold
+                    ),
+                  ),
+                  subtitle: Text(
+                    'Dirección'),
+                ),
+                ListTile(
+                  title: Text(
+                    '9991144859',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold
+                    ),
+                  ),
+                  subtitle: Text(
+                    'Teléfono'),
+                ),
+                ListTile(
+                  title: Text(
+                    'Lunes - Viernes',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold
+                    ),
+                  ),
+                  subtitle: Text(
+                    'Horario'),
+                ),
+              ],
             ),
-            child: const Text(''),
+          ),
+          const SizedBox(height:40),
+          Text(
+            'Servicios',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
             ),
+            ),
+            Divider(
+            height: 20,
+            thickness: 5,
+            indent: 50,
+            endIndent: 50,
+            color: AppTheme.secundaryColor,
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 50, right: 50),
+            child: Column(
+              children: [
+                ListTile(
+                  title: Text(
+                    'Servicio 1',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold),
+                    ),
+                  leading: Image.asset('assets/images/404.png'),
+                  onTap: (){
+                    Navigator.pushNamed(context, 'servicio');
+                  },
+                  )
+              ],
+            ),
+          ),
           
+          const SizedBox(height:40),
+          Text(
+            'Torneos',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+            ),
+            Divider(
+            height: 20,
+            thickness: 5,
+            indent: 50,
+            endIndent: 50,
+            color: AppTheme.secundaryColor,
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 50, right: 50),
+            child: Column(
+              children: [
+                ListTile(
+                  title: Text(
+                    'Torneo 1',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold),
+                    ),
+                  leading: Image.asset('assets/images/trofeo.png'),
+                  onTap: (){
+                    Navigator.pushNamed(context, 'torneo');
+                  },
+                  )
+              ],
+            ),
+          ),
+          const SizedBox(height:40),
           
         ],
       ),

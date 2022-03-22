@@ -14,7 +14,7 @@ class _ClubesScreenState extends State<ClubesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Clubes'),
+        title: const Text('Lista clubes'),
         centerTitle: true,
         titleTextStyle: const TextStyle(
           fontWeight: FontWeight.bold,
@@ -31,6 +31,7 @@ class _ClubesScreenState extends State<ClubesScreen> {
       ),
       body: ListView(
         children: <Widget>[
+          const SizedBox(height: 20,),
           Container(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
               child: ListTile(
