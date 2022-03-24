@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class TorneoScreen extends StatelessWidget {
   const TorneoScreen({Key? key}) : super(key: key);
 
@@ -15,11 +16,15 @@ class TorneoScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: ListView(
-        children: [
+        children: <Widget>[
           ElevatedButton(
             onPressed: (){}, 
-            child: Text('Suscribirse')),
-            style: 
+            child: Text('Suscribirse'),
+            style: ButtonStyle(
+              
+
+            ),
+            ),
         ],
       )
     );
