@@ -51,7 +51,7 @@ class ServicioScreen extends StatelessWidget {
                 ),
                 ListTile(
                   title: Text('Si'),
-                  subtitle: Text('Se aceptan personas discapacitadass'),
+                  subtitle: Text('Se aceptan personas discapacitadas'),
                 ),
               ],
             ),

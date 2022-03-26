@@ -124,6 +124,8 @@ class RegistroScreen extends StatelessWidget {
                               // ignore: avoid_print
                               print(formValues);
                             }
+                            myFormKey.currentState?.reset();
+                            Navigator.pop(context);
                           },
                           
                           child: Row(

@@ -32,6 +32,15 @@ class CustomFormField extends StatelessWidget {
     if(value.isEmpty) return 'El campo es requerido';
 
     //Agrega más validaciones
+    /*if(propertyName.contains('Correo'))
+    {
+      var correo = value.length;
+      
+
+
+    }
+    */
+
 
     return null;
   }

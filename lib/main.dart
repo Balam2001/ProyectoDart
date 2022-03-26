@@ -64,7 +64,7 @@ class _MyAppState extends State<MyApp> {
         body: NavBarRoutes(index: index)
       ),
       routes: AppRoutes.getRoutes(),
-      theme: themeNotifier.isDark ? AppTheme.darkTheme : AppTheme.lightTheme ,
+      theme: themeNotifier.isDark ? AppTheme.darkTheme : AppTheme.lightTheme,
     );
         }
       )
