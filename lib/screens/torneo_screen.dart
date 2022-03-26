@@ -91,6 +91,7 @@ class TorneoScreen extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
+          SizedBox(height : 10),
           Container(
             padding: EdgeInsets.only(right: 50, left: 50),
             child: Column(
@@ -98,6 +99,7 @@ class TorneoScreen extends StatelessWidget {
                 ListTile(
                   title: Text('Ejemplo Club2'),
                   subtitle: Text('Ganador'),
+                  leading: Image.asset('assets/images/Club_IMG.png'),
                 ),
               ],
             ),
