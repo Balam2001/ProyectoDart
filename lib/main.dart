@@ -10,7 +10,7 @@ import 'package:merceria_fat/widgets/bottom_navbar.dart';
 import 'package:merceria_fat/routes/app_routes.dart';
 import 'package:merceria_fat/widgets/drawer_widget.dart';
 import 'package:provider/provider.dart';
-void main() => runApp(const MyApp());
+void main() => runApp(const AppState());
 
 class MyHttpOverrides extends HttpOverrides {
   @override

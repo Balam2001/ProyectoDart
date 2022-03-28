@@ -19,7 +19,7 @@ class TorneosScreen extends StatelessWidget {
           Container(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
               child: ListTile(
-                title: const Text ('Club 1'),
+                title: const Text ('Torneo 1'),
                 subtitle:  const Text("Este es una breve descripción"),
                 leading: Image.asset(
                   'assets/images/Club_IMG.png',
@@ -34,24 +34,24 @@ class TorneosScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
               child: ListTile(
-                title: const Text ('Club 2'),
+                title: const Text ('Torneo 2'),
                 subtitle:  const Text("Este es una breve descripción"),
                 leading: Image.asset(
                   'assets/images/Club_IMG.png'),
                 onTap: (){
-                  Navigator.pushNamed(context, 'club_screen');
+                  Navigator.pushNamed(context, 'torneo');
                 },
               ),
             ),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
               child: ListTile(
-                title: const Text ('Club 3'),
+                title: const Text ('Torneo 3'),
                 subtitle:  const Text("Este es una breve descripción"),
                 leading: Image.asset(
                   'assets/images/Club_IMG.png'),
                 onTap: (){
-                  Navigator.pushNamed(context, 'club_screen');
+                  Navigator.pushNamed(context, 'torneo');
                 },
               ),
             ),
