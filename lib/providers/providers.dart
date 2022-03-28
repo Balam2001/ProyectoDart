@@ -1,0 +1,1 @@
+export 'package:merceria_fat/providers/club_provider.dart';
