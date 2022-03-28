@@ -35,6 +35,7 @@ class _TorneosScreenState extends State<TorneosScreen>{
         separatorBuilder: (_,__) => Divider(),
         itemCount: torneos.length)
       );
+
   }
 }
   

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:merceria_fat/themes/app_theme.dart';
 
 class PerfilUsuario extends StatefulWidget {
   const PerfilUsuario({Key? key}) : super(key: key);
@@ -13,14 +14,56 @@ class _PerfilUsuarioState extends State<PerfilUsuario> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        titleTextStyle: const TextStyle(
+        titleTextStyle: TextStyle(
           fontWeight: FontWeight.bold
         ),
-        title: const Text(
+        title: Text(
           'Perfil',
         ),
 
       ),
+      body: ListView(
+        children: [
+          SizedBox(height: 20,),
+          Icon(Icons.person,
+            size: 200),
+          SizedBox(height: 20,),
+          Container(
+          
+            child: Column(
+              children: [
+              ListTile(
+                title: Text('Jonathan'),
+                subtitle: Text('Nombres') ,
+              ),
+              ListTile(
+                title: Text('Herrera'),
+                subtitle: Text('Apellidos'),
+              ),
+              ListTile(
+                title: Text('99999999'),
+                subtitle: Text('Número'),
+              ),
+              SizedBox(height: 50,),
+              Container(
+                width: 100,
+                height: 50,
+                color: AppTheme.primaryColor,
+                child: TextButton(
+                  child: Text('Editar Perfil',
+                  style: TextStyle(
+                    color: Colors.white
+                  ),),
+                  onPressed: (){
+                    Navigator.pushNamed(context, 'editar_perfil');
+                  },
+                ),
+                
+              )
+            ]),
+          )
+        ],
+      )
 
 
     );

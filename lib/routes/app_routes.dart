@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:merceria_fat/screens/formulario_editarperf.dart';
 import 'package:merceria_fat/screens/screens.dart';
 import 'package:merceria_fat/models/item_menu.dart';
 
@@ -13,8 +14,9 @@ class AppRoutes{
     ItemMenu(label: 'Club', route: 'club_screen', icon: Icons.access_alarm_sharp, screen: const ClubScreen()),
     ItemMenu(label: 'Home', route: 'home', icon: Icons.house, screen: const HomeScreen()),
     ItemMenu(label: 'Torneo', route: 'torneo', icon: Icons.person , screen: const TorneoScreen()),
-    ItemMenu(label: 'Filtros', route: 'filtros', icon: Icons.filter, screen: const FiltrosScreen()),
+    ItemMenu(label: 'Filtros', route: 'filtros', icon: Icons.filter, screen:  FiltrosScreen()),
     ItemMenu(label: 'Servicio', route: 'servicio', icon: Icons.abc, screen: const ServicioScreen()),
+    ItemMenu(label: 'EditarPerfil', route: 'editar_perfil',icon: Icons.anchor, screen: FormularioEditarPerf())
   ];
 
   static final countMenuOptions = menuOptions.length;

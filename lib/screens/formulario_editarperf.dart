@@ -1,42 +1,43 @@
 
 import 'package:flutter/material.dart';
-import 'package:merceria_fat/widgets/custom_form_field.dart';
 
 import '../themes/app_theme.dart';
+import '../widgets/custom_form_field.dart';
 
-class FiltrosScreen extends StatelessWidget {
-FiltrosScreen({Key? key}) : super(key: key);
-final Map<String, String> formFiltros = {
-    'Nombre' : '',
-    'Telefono' : '',
-    'Direccion' : ''
+class FormularioEditarPerf extends StatelessWidget {
+  final Map<String, String> formFiltros = {
+    'Nombres' : '',
+    'Apellido' : '',
+    'Telefono' : ''
     };
+  FormularioEditarPerf({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Filtros')
+        title: Text('Editar Perfil'),
+        centerTitle: true,
       ),
       body: ListView(
         children: [
           
-          SizedBox( height: 30,),
+          SizedBox( height: 80,),
           Padding(
             padding: const EdgeInsets.only(left: 30, right: 30),
             child: CustomFormField(
-              propertyName: 'Nombre',
+              propertyName: 'Nombres',
               formValues: formFiltros,
-              hintText: 'Agregue el nombre del Club',
+              hintText: 'Nombres',
               maxLength: 40,
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 30, right: 30),
             child: CustomFormField(
-              propertyName: 'Telefono',
+              propertyName: 'Apellidos',
               formValues: formFiltros,
-              hintText: 'Agregue el Teléfono del Club',
+              hintText: 'Apellidos',
               maxLength: 12
               ,
             ),
@@ -44,9 +45,9 @@ final Map<String, String> formFiltros = {
           Padding(
             padding: const EdgeInsets.only(left: 30, right: 30),
             child: CustomFormField(
-              propertyName: 'Direccion',
+              propertyName: 'Telefono',
               formValues: formFiltros,
-              hintText: 'Agregue el Direccion del Club',
+              hintText: 'Teléfono',
               maxLength: 60,
             ),
           ),
@@ -82,9 +83,7 @@ final Map<String, String> formFiltros = {
         ],
 
 
-      )
-
-        
-      );
+      ),
+    );
   }
 }
