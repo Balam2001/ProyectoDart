@@ -37,10 +37,12 @@ class _ClubesScreenState extends State<ClubesScreen> {
         itemBuilder: (context, index) => ListTile(
           title: Text(clubes[index].nombre),
           leading: FadeInImage.assetNetwork(placeholder: 'assets/images/404.png', image: clubes[index].logotipo),
+          onTap: (){
+                  Navigator.pushNamed(context, 'club_screen');
+                },
         ),
         separatorBuilder: (_,__) => Divider(),
         itemCount: clubes.length)
     );
   }
 }
-

@@ -1,4 +1,3 @@
-
 //String clubToJson(List<Club> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Club {
@@ -21,6 +20,8 @@ class Club {
     final double latitud;
     final double longitud;
     final String horario;
+
+    
 
     factory Club.fromJson(Map<String, dynamic> json) => Club(
         id: json["id"],

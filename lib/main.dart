@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:merceria_fat/providers/club_provider.dart';
+import 'package:merceria_fat/providers/torneo_provider.dart';
 import 'package:merceria_fat/routes/navbar_routes.dart';
 import 'package:merceria_fat/models/theme_model.dart';
 import 'package:merceria_fat/themes/app_theme.dart';
@@ -10,7 +11,7 @@ import 'package:merceria_fat/widgets/bottom_navbar.dart';
 import 'package:merceria_fat/routes/app_routes.dart';
 import 'package:merceria_fat/widgets/drawer_widget.dart';
 import 'package:provider/provider.dart';
-void main() => runApp(const MyApp());
+void main() => runApp(const AppState());
 
 class MyHttpOverrides extends HttpOverrides {
   @override
@@ -29,7 +30,11 @@ class AppState extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => ClubProvider(),
           lazy: false,
-        )
+        ),
+        ChangeNotifierProvider(
+          create: (context) => TorneoProvider(),
+          lazy: false,
+          )
       ],
       child: MyApp(),);
   }
