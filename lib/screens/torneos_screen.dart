@@ -55,7 +55,6 @@ class TorneosScreen extends StatelessWidget {
                 },
               ),
             ),
-
             
           
         ],

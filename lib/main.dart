@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:merceria_fat/providers/club_provider.dart';
 import 'package:merceria_fat/routes/navbar_routes.dart';
 import 'package:merceria_fat/models/theme_model.dart';
 import 'package:merceria_fat/themes/app_theme.dart';
@@ -8,6 +11,29 @@ import 'package:merceria_fat/routes/app_routes.dart';
 import 'package:merceria_fat/widgets/drawer_widget.dart';
 import 'package:provider/provider.dart';
 void main() => runApp(const MyApp());
+
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) => super.createHttpClient(context)..badCertificateCallback =(cert, host, port) => true;
+
+}
+
+class AppState extends StatelessWidget {
+  const AppState({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => ClubProvider(),
+          lazy: false,
+        )
+      ],
+      child: MyApp(),);
+  }
+}
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -41,7 +67,6 @@ class _MyAppState extends State<MyApp> {
       return MaterialApp(
       title: 'FAT',
       debugShowCheckedModeBanner: false,
-      
       home:
       Scaffold(
         appBar: AppBar(

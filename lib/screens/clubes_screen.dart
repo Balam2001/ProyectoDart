@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-
+import 'package:merceria_fat/providers/club_provider.dart';
+import 'package:provider/provider.dart';
 
 class ClubesScreen extends StatefulWidget {
   const ClubesScreen({Key? key}) : super(key: key);
@@ -10,8 +10,12 @@ class ClubesScreen extends StatefulWidget {
 }
 
 class _ClubesScreenState extends State<ClubesScreen> {
+  
   @override
   Widget build(BuildContext context) {
+    final clubProvider = Provider.of<ClubProvider>(context);
+    final clubes = clubProvider.displayClubs;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Lista clubes'),
@@ -29,53 +33,13 @@ class _ClubesScreenState extends State<ClubesScreen> {
           )
         ],
       ),
-      body: ListView(
-        children: <Widget>[
-          const SizedBox(height: 20,),
-          Container(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
-              child: ListTile(
-                title: const Text ('Club 1'),
-                subtitle:  const Text("Este es una breve descripción"),
-                leading: Image.asset(
-                  'assets/images/Club_IMG.png',
-                  
-                ),
-                onTap: (){
-                  Navigator.pushNamed(context, 'club_screen');
-                  
-                },
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
-              child: ListTile(
-                title: const Text ('Club 2'),
-                subtitle:  const Text("Este es una breve descripción"),
-                leading: Image.asset(
-                  'assets/images/Club_IMG.png'),
-                onTap: (){
-                  Navigator.pushNamed(context, 'club_screen');
-                },
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
-              child: ListTile(
-                title: const Text ('Club 3'),
-                subtitle:  const Text("Este es una breve descripción"),
-                leading: Image.asset(
-                  'assets/images/Club_IMG.png'),
-                onTap: (){
-                  Navigator.pushNamed(context, 'club_screen');
-                },
-              ),
-            ),
-
-            
-          
-        ],
-      ),
+      body: ListView.separated(
+        itemBuilder: (context, index) => ListTile(
+          title: Text(clubes[index].nombre),
+          leading: FadeInImage.assetNetwork(placeholder: 'assets/images/404.png', image: clubes[index].logotipo),
+        ),
+        separatorBuilder: (_,__) => Divider(),
+        itemCount: clubes.length)
     );
   }
 }

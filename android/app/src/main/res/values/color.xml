@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<color name = "primary"> #2F8B99 </color>
+    <color name="primary">#2f8b99</color>
 </resources>
