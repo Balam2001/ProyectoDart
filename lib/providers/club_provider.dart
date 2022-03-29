@@ -30,6 +30,4 @@ class ClubProvider extends ChangeNotifier
   }
 }
 
-
-
 //List<Club> clubFromJson(String str) => List<Club>.from(json.decode(str).map((x) => Club.fromJson(x)));

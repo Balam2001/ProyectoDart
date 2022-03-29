@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:merceria_fat/themes/app_theme.dart';
 
+import '../models/Club.dart';
+
 class ClubScreen extends StatelessWidget {
-  const ClubScreen({Key? key}) : super(key: key);
+  const ClubScreen({Key? key, required this.club}) : super(key: key);
+  final Club club;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +19,7 @@ class ClubScreen extends StatelessWidget {
           const SizedBox(height:30),
           const SizedBox(height:20),
           Image.network(
-          'https://cdn.freebiesupply.com/images/large/2x/new-york-yankees-ny-logo.png',
+          (club.logotipo),
           width: 300,
           height: 200,
           alignment: Alignment.center,
@@ -44,7 +47,7 @@ class ClubScreen extends StatelessWidget {
               children: [
                 ListTile(
                   title: Text(
-                    'NY Yankees',
+                    (club.nombre),
                     style: TextStyle(
                       fontWeight: FontWeight.bold
                     ),
@@ -54,7 +57,7 @@ class ClubScreen extends StatelessWidget {
                 ),
                 ListTile(
                   title: Text(
-                    'Calle 50 Morelos',
+                    (club.direccion),
                     style: TextStyle(
                       fontWeight: FontWeight.bold
                     ),
@@ -64,7 +67,7 @@ class ClubScreen extends StatelessWidget {
                 ),
                 ListTile(
                   title: Text(
-                    '9991144859',
+                    (club.telefono),
                     style: TextStyle(
                       fontWeight: FontWeight.bold
                     ),
@@ -74,7 +77,7 @@ class ClubScreen extends StatelessWidget {
                 ),
                 ListTile(
                   title: Text(
-                    'Lunes - Viernes',
+                    (club.horario),
                     style: TextStyle(
                       fontWeight: FontWeight.bold
                     ),
