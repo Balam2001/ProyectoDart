@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:merceria_fat/themes/app_theme.dart';
 
+import '../models/Torneo.dart';
+
 
 class TorneoScreen extends StatelessWidget {
-  const TorneoScreen({Key? key}) : super(key: key);
+  const TorneoScreen({Key? key, required this.torneo}) : super(key: key);
+  final Torneo torneo;
 
   @override
   Widget build(BuildContext context) {
@@ -38,39 +41,39 @@ class TorneoScreen extends StatelessWidget {
             child: Column(
               children: [
                 ListTile(
-                  title: Text('Torneo Primavera 2022'),
+                  title: Text(torneo.nombre),
                   subtitle: Text('Nombre'),
                 ),
                 ListTile(
-                  title: Text('Basketball'),
-                  subtitle: Text('Deporte'),
+                  title: Text(torneo.disciplina),
+                  subtitle: Text('Disciplina'),
                 ),
                 ListTile(
-                  title: Text('Club Ejemplo'),
+                  title: Text(torneo.club),
                   subtitle: Text('Organizador'),
                 ),
                 ListTile(
-                  title: Text('8'),
+                  title: Text( torneo.numeroEquipos.toString()),
                   subtitle: Text('Número de equipos'),
                 ),
                 ListTile(
-                  title: Text('500'),
+                  title: Text(torneo.costo.toString()),
                   subtitle: Text('Costo de Entrada'),
                 ),
                 ListTile(
-                  title: Text('3'),
+                  title: Text(torneo.rondas.toString()),
                   subtitle: Text('Número de Rondas'),
                 ),
                 ListTile(
-                  title: Text('Local'),
+                  title: Text(torneo.tipo),
                   subtitle: Text('Tipo'),
                 ),
                 ListTile(
-                  title: Text('Disponible'),
+                  title: Text(torneo.estado.toString()),
                   subtitle: Text('Estado'),
                 ),
                 ListTile(
-                  title: Text('Reglas'),
+                  title: Text(torneo.reglas),
                   onTap: (){},
                 ),
               ],

@@ -1,14 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:merceria_fat/providers/providers.dart';
+import 'package:merceria_fat/screens/screens.dart';
+import 'package:merceria_fat/screens/torneo_screen.dart';
 import 'package:merceria_fat/themes/app_theme.dart';
+import 'package:provider/provider.dart';
 
 import '../models/Club.dart';
+import '../models/Servicio.dart';
+import '../models/Torneo.dart';
 
 class ClubScreen extends StatelessWidget {
   const ClubScreen({Key? key, required this.club}) : super(key: key);
   final Club club;
+  
+  
 
   @override
   Widget build(BuildContext context) {
+    final servicioProvider = Provider.of<ServicioProvider>(context);
+    final servicios = servicioProvider.displayServicios;
+    List<Servicio> serviciosClub = servicios.where((Servicio) => Servicio.claveClub == club.id).toList(); 
+
+    final torneoProvider = Provider.of<TorneoProvider>(context);
+    final torneos = torneoProvider.displayTorneos;
+    List<Torneo> torneosClub = torneos.where((Torneo) => Torneo.claveClub == club.id).toList(); 
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Club'),
@@ -106,19 +122,21 @@ class ClubScreen extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.only(left: 50, right: 50),
-            child: Column(
+            child:  Column(
               children: [
-                ListTile(
-                  title: Text(
-                    'Servicio 1',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold),
-                    ),
-                  leading: Image.asset('assets/images/404.png'),
-                  onTap: (){
-                    Navigator.pushNamed(context, 'servicio');
-                  },
-                  )
+                ListView.separated(
+                  itemBuilder: (context, index) => ListTile(
+                    contentPadding: EdgeInsets.only(top: 20, left: 50),
+                    title: Text(serviciosClub[index].disciplina),
+                    leading: FadeInImage.assetNetwork(placeholder: 'assets/images/404.png', image: 'https://cdn-icons-png.flaticon.com/512/3176/3176272.png'),
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => ServicioScreen(servicio: serviciosClub[index])));
+                      },
+                  ),
+                  separatorBuilder: (_,__) => Divider(
+                    height: 10,
+                  ),
+                  itemCount: serviciosClub.length)
               ],
             ),
           ),
@@ -143,17 +161,19 @@ class ClubScreen extends StatelessWidget {
             padding: EdgeInsets.only(left: 50, right: 50),
             child: Column(
               children: [
-                ListTile(
-                  title: Text(
-                    'Torneo 1',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold),
-                    ),
-                  leading: Image.asset('assets/images/trofeo.png'),
-                  onTap: (){
-                    Navigator.pushNamed(context, 'torneo');
-                  },
-                  )
+                ListView.separated(
+                  itemBuilder: (context, index) => ListTile(
+                    contentPadding: EdgeInsets.only(top: 20, left: 50),
+                    title: Text(torneosClub[index].nombre),
+                    leading: FadeInImage.assetNetwork(placeholder: 'assets/images/404.png', image: 'https://cdn-icons-png.flaticon.com/512/3176/3176272.png'),
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => TorneoScreen(torneo: torneosClub[index])));
+                      },
+                  ),
+                  separatorBuilder: (_,__) => Divider(
+                    height: 10,
+                  ),
+                  itemCount: torneosClub.length)
               ],
             ),
           ),

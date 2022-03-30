@@ -1,20 +1,33 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:merceria_fat/providers/providers.dart';
 import 'package:merceria_fat/themes/app_theme.dart';
 import 'package:merceria_fat/widgets/custom_form_field.dart';
+import 'package:provider/provider.dart';
+import 'package:http/http.dart';
 
-class RegistroScreen extends StatelessWidget {
+import '../models/RequestRegister.dart';
+
+class RegistroScreen extends StatefulWidget {
   const RegistroScreen({Key? key}) : super(key: key);
 
+  @override
+  State<RegistroScreen> createState() => _RegistroScreenState();
+}
+
+class _RegistroScreenState extends State<RegistroScreen> {
   @override
   Widget build(BuildContext context) {
 
     final Map<String, String> formValues = {
-    'Nombres' : '',
-    'Apellidos' : '',
-    'Correo' : '',
-    'Contraseña' : ''
+    'nombres' : '',
+    'apellidos' : '',
+    'correo' : '',
+    'contraseña' : ''
     };
 
+    
     final GlobalKey<FormState> myFormKey = GlobalKey<FormState>();
     return Scaffold(
       appBar: AppBar(
@@ -58,7 +71,7 @@ class RegistroScreen extends StatelessWidget {
                           maxLength: 40,
                           autofocus: true,
                           prefixIcon: Icons.person,
-                          propertyName: 'Nombres',
+                          propertyName: 'nombres',
                           formValues: formValues,
                           textStyle: const TextStyle(
                             color: Colors.white
@@ -72,7 +85,7 @@ class RegistroScreen extends StatelessWidget {
                           keyboardType: TextInputType.name,
                           maxLength: 40,
                           prefixIcon: Icons.person,
-                          propertyName: 'Apellidos',
+                          propertyName: 'apellidos',
                           formValues: formValues,
                           textStyle: const TextStyle(
                             color: Colors.white
@@ -86,7 +99,7 @@ class RegistroScreen extends StatelessWidget {
                           keyboardType: TextInputType.emailAddress,
                           maxLength: 60,
                           prefixIcon: Icons.email,
-                          propertyName: 'Correo',
+                          propertyName: 'correo',
                           formValues: formValues,
                           textStyle: const TextStyle(
                             color: Colors.white
@@ -101,7 +114,7 @@ class RegistroScreen extends StatelessWidget {
                           maxLength: 16,
                           prefixIcon: Icons.password,
                           obscureText: true,
-                          propertyName: 'Contraseña',
+                          propertyName: 'contraseña',
                           formValues: formValues,
                           textStyle: const TextStyle(
                             color: Colors.white
@@ -118,14 +131,23 @@ class RegistroScreen extends StatelessWidget {
                         ),
                         child: InkWell(
                           onTap: (){
+
+                            
+
                             bool isValidate = myFormKey.currentState?.validate() ?? false;
                             //Cuando tu formulario sea inconrrecto lanzar instruciones
                             if (isValidate) {
                               // ignore: avoid_print
-                              print(formValues);
+
+                              Future<int> code = postRegister(formValues);
+                              if(postRegister(formValues) == 201){
+                                Navigator.pushNamed(context, 'login');
+                              }
+
                             }
-                            myFormKey.currentState?.reset();
-                            Navigator.pop(context);
+                            
+                          
+
                           },
                           
                           child: Row(
@@ -153,4 +175,19 @@ class RegistroScreen extends StatelessWidget {
         ),
       );
   }
+}
+postRegister(Map formvalues) async {
+    const String endPoint = 'api/Ciudadano';
+    final String _host = 'apifat.somee.com';
+    final url = Uri.https(_host, endPoint);
+    Map<String, String> requestHeaders = {
+       'Content-type': 'application/json',
+       'Accept': 'application/json',
+     };
+
+    
+    Response response = await post(url, body: json.encode(formvalues), headers: requestHeaders);
+
+    int status = response.statusCode;
+    return status;
 }

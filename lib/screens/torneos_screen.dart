@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:merceria_fat/providers/torneo_provider.dart';
+import 'package:merceria_fat/screens/torneo_screen.dart';
 import 'package:provider/provider.dart';
 
 class TorneosScreen extends StatefulWidget {
@@ -29,7 +30,7 @@ class _TorneosScreenState extends State<TorneosScreen>{
           title: Text(torneos[index].nombre),
           leading: FadeInImage.assetNetwork(placeholder: 'assets/images/404.png', image: 'https://cdn-icons-png.flaticon.com/512/3176/3176272.png'),
           onTap: (){
-                  Navigator.pushNamed(context, 'torneo');
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => TorneoScreen(torneo: torneos[index])));
                 },
         ),
         separatorBuilder: (_,__) => Divider(),

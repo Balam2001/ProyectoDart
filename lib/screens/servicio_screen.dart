@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:merceria_fat/models/Servicio.dart';
 import '../themes/app_theme.dart';
 
 class ServicioScreen extends StatelessWidget {
-  const ServicioScreen({Key? key}) : super(key: key);
+  const ServicioScreen({Key? key, required this.servicio}) : super(key: key);
+  final Servicio servicio;
 
   @override
   Widget build(BuildContext context) {
@@ -34,23 +36,27 @@ class ServicioScreen extends StatelessWidget {
             child: Column(
               children: [
                 ListTile(
-                  title: Text('Clases de Baseball'),
+                  title: Text(servicio.disciplina),
                   subtitle: Text('Nombre'),
                 ),
                 ListTile(
-                  title: Text('Miercoles - Viernes'),
+                  title: Text(servicio.horario),
                   subtitle: Text('Horario'),
                 ),
                 ListTile(
-                  title: Text('20'),
+                  title: Text(servicio.numeroPersonas.toString()),
                   subtitle: Text('Numero de Personas'),
                 ),
                 ListTile(
-                  title: Text('Sí'),
+                  title: Text(servicio.equipoEspecial.toString()),
                   subtitle: Text('Equipo Especial'),
                 ),
                 ListTile(
-                  title: Text('Si'),
+                  title: Text(servicio.descEsquipoEspecial),
+                  subtitle: Text('Descripcion equipo especial'),
+                ),
+                ListTile(
+                  title: Text(servicio.persConCapacidad.toString()),
                   subtitle: Text('Se aceptan personas discapacitadas'),
                 ),
               ],

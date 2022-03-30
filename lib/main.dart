@@ -2,8 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:merceria_fat/providers/club_provider.dart';
-import 'package:merceria_fat/providers/torneo_provider.dart';
+import 'package:merceria_fat/models/RequestRegister.dart';
+import 'package:merceria_fat/models/Servicio.dart';
+import 'package:merceria_fat/providers/providers.dart';
 import 'package:merceria_fat/routes/navbar_routes.dart';
 import 'package:merceria_fat/models/theme_model.dart';
 import 'package:merceria_fat/themes/app_theme.dart';
@@ -34,7 +35,11 @@ class AppState extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => TorneoProvider(),
           lazy: false,
-          )
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ServicioProvider(),
+          lazy: false,
+        ),
       ],
       child: MyApp(),);
   }
