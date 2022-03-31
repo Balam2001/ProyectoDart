@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:merceria_fat/models/Club.dart';
 import 'package:merceria_fat/models/Servicio.dart';
+import 'package:merceria_fat/screens/contactanos_screen.dart';
 import 'package:merceria_fat/screens/formulario_editarperf.dart';
 import 'package:merceria_fat/screens/screens.dart';
 import 'package:merceria_fat/models/item_menu.dart';
@@ -21,7 +22,8 @@ class AppRoutes{
     ItemMenu(label: 'Torneo', route: 'torneo', icon: Icons.person , screen: TorneoScreen(torneo: Torneo(id: 0, claveDisciplina: 0, disciplina: '', claveClub: 0, club: '', nombre: '', numeroEquipos: 0, numeroEquiposDisp: 0, costo: 0, reglas: '', rondas: 0, tipo: '', estado: false),)),
     ItemMenu(label: 'Filtros', route: 'filtros', icon: Icons.filter, screen:  FiltrosScreen()),
     ItemMenu(label: 'Servicio', route: 'servicio', icon: Icons.abc, screen: ServicioScreen(servicio: Servicio(claveClub: 0, club: '', id: 0, disciplina: '', claveDisciplina: 0, horario: '', numeroPersonas: 0, equipoEspecial: false, descEsquipoEspecial: '', persConCapacidad: false),)),
-    ItemMenu(label: 'EditarPerfil', route: 'editar_perfil',icon: Icons.anchor, screen: FormularioEditarPerf())
+    ItemMenu(label: 'EditarPerfil', route: 'editar_perfil',icon: Icons.anchor, screen: FormularioEditarPerf()),
+    ItemMenu(label: 'Contactanos', route: 'contact', icon: Icons.abc_outlined, screen: ContactanosScreen())
   ];
 
   static final countMenuOptions = menuOptions.length;

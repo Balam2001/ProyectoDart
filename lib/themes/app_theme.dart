@@ -15,8 +15,12 @@ class AppTheme{
         iconColor: primaryColor,
         prefixIconColor: primaryColor,
         labelStyle: TextStyle(color: primaryColor),
+        hintStyle: TextStyle(
+          color: Colors.grey
+        ),
         border: const OutlineInputBorder(
-          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10),topRight: Radius.circular(10))
+        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10),topRight: Radius.circular(10))
+
         )
         
       ));

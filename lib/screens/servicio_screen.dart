@@ -21,8 +21,11 @@ class ServicioScreen extends StatelessWidget {
       body: ListView(
         children: [
           const SizedBox(height: 30,),
-          Icon(Icons.design_services,
-          size: 130,),
+          FadeInImage.assetNetwork(placeholder: 'assets/images/404.png', image: 'https://cdn-icons-png.flaticon.com/512/100/100462.png',
+          height: 200,
+          width: 100,
+
+          ),
           Divider(
             height: 20,
             thickness: 5,
@@ -30,7 +33,7 @@ class ServicioScreen extends StatelessWidget {
             endIndent: 50,
             color: AppTheme.secundaryColor,
           ),
-          const SizedBox(height: 20,),
+          const SizedBox(height: 20),
           Container(
             padding: EdgeInsets.only(right: 100, left: 100),
             child: Column(
@@ -56,7 +59,7 @@ class ServicioScreen extends StatelessWidget {
                   subtitle: Text('Descripcion equipo especial'),
                 ),
                 ListTile(
-                  title: Text(servicio.persConCapacidad.toString()),
+                  title: Text(servicio.persConCapacidad == false ? 'No' : 'Si'),
                   subtitle: Text('Se aceptan personas discapacitadas'),
                 ),
               ],

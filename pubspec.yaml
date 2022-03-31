@@ -76,6 +76,7 @@ flutter:
     - assets/images/Club_IMG.png
     - assets/images/404.png
     - assets/images/tournament.png
+    - assets/images/centro-deportivo.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

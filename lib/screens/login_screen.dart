@@ -92,6 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               if (isValidate) {
                                 // ignore: avoid_print
                                 print(formValuesLogin);
+                                Navigator.pushNamed(context,'home');
                               }
                         },
                         child: Container(

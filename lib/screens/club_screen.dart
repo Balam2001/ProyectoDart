@@ -32,9 +32,7 @@ class ClubScreen extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           const SizedBox(height:30),
-          const SizedBox(height:20),
-          Image.network(
-          (club.logotipo),
+          FadeInImage.assetNetwork( placeholder : 'assets/images/404.png' ,image :(club.logotipo),
           width: 300,
           height: 200,
           alignment: Alignment.center,
@@ -121,20 +119,21 @@ class ClubScreen extends StatelessWidget {
           ),
           Container(
             height: 80,
-            padding: EdgeInsets.only(left: 50, right: 50),
+            padding: EdgeInsets.only(left: 40, right: 40),
             child:  Container(
               child: ListView.separated(
                   itemBuilder: (context, index) => ListTile(
                     contentPadding: EdgeInsets.only(top: 20, left: 50),
                     title: Text(serviciosClub[index].disciplina),
-                    leading: FadeInImage.assetNetwork(placeholder: 'assets/images/404.png', image: 'https://cdn-icons-png.flaticon.com/512/3176/3176272.png'),
+                    leading: FadeInImage.assetNetwork(placeholder: 'assets/images/404.png', image: 'https://img2.freepng.es/20180713/hog/kisspng-business-recreation-sport-camp-social-clip-art-sports-culture-festival-5b49419218e415.736910231531527570102.jpg',
+                    ),
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context) => ServicioScreen(servicio: serviciosClub[index])));}),
                   separatorBuilder: (_,__) => Divider(height: 10,),
                   itemCount: serviciosClub.length
                 )),
           ),
-          const SizedBox(height:40),
+          const SizedBox(height: 30),
           Text(
             'Torneos',
             textAlign: TextAlign.center,

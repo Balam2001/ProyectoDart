@@ -69,12 +69,11 @@ class TorneoScreen extends StatelessWidget {
                   subtitle: Text('Tipo'),
                 ),
                 ListTile(
-                  title: Text(torneo.estado.toString()),
+                  title: Text(torneo.estado == false ? 'No disponible' : 'Disponible'),
                   subtitle: Text('Estado'),
                 ),
                 ListTile(
                   title: Text(torneo.reglas),
-                  onTap: (){},
                 ),
               ],
             ),

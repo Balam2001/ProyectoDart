@@ -65,9 +65,14 @@ class HomeScreen extends StatelessWidget {
                 },
               ),
             ),
-            
-
-
+            SizedBox(height: 10,),
+            Text(
+              'Para visualizar sus torneos, necesita iniciar sesión',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontWeight: FontWeight.bold
+              ),
+              )
               
           ],
 

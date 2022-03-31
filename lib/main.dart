@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:merceria_fat/providers/providers.dart';
 import 'package:merceria_fat/routes/navbar_routes.dart';
 import 'package:merceria_fat/models/theme_model.dart';
+import 'package:merceria_fat/screens/login_screen.dart';
 import 'package:merceria_fat/themes/app_theme.dart';
 import 'package:merceria_fat/widgets/bottom_navbar.dart';
 import 'package:merceria_fat/routes/app_routes.dart';

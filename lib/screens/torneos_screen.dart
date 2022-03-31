@@ -27,13 +27,16 @@ class _TorneosScreenState extends State<TorneosScreen>{
       ),
       body: ListView.separated(
         itemBuilder: (context, index) => ListTile(
+          contentPadding: EdgeInsets.only(top: 20, left: 50, bottom: 20),
           title: Text(torneos[index].nombre),
           leading: FadeInImage.assetNetwork(placeholder: 'assets/images/404.png', image: 'https://cdn-icons-png.flaticon.com/512/3176/3176272.png'),
           onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context) => TorneoScreen(torneo: torneos[index])));
                 },
         ),
-        separatorBuilder: (_,__) => Divider(),
+        separatorBuilder: (_,__) => Divider(
+          height: 10,
+        ),
         itemCount: torneos.length)
       );
 
