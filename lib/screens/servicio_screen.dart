@@ -21,7 +21,7 @@ class ServicioScreen extends StatelessWidget {
       body: ListView(
         children: [
           const SizedBox(height: 30,),
-          FadeInImage.assetNetwork(placeholder: 'assets/images/404.png', image: 'https://cdn-icons-png.flaticon.com/512/100/100462.png',
+          FadeInImage.assetNetwork(placeholder: 'assets/images/404.png', image: 'https://www3.gobiernodecanarias.org/comercio/consumecanarias/wp-content/uploads/2021/05/logopordefecto_color-deporte.png',
           height: 200,
           width: 100,
 
@@ -51,7 +51,7 @@ class ServicioScreen extends StatelessWidget {
                   subtitle: Text('Numero de Personas'),
                 ),
                 ListTile(
-                  title: Text(servicio.equipoEspecial.toString()),
+                  title: Text(servicio.equipoEspecial == false ? 'No' : 'Si'),
                   subtitle: Text('Equipo Especial'),
                 ),
                 ListTile(

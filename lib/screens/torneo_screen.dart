@@ -85,37 +85,16 @@ class TorneoScreen extends StatelessWidget {
             endIndent: 50,
             color: AppTheme.secundaryColor,
           ),
-          Text(
-            'Resultado',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height : 10),
-          Container(
-            padding: EdgeInsets.only(right: 50, left: 50),
-            child: Column(
-              children: [
-                ListTile(
-                  title: Text('Ejemplo Club2'),
-                  subtitle: Text('Ganador'),
-                  leading: Image.asset('assets/images/Club_IMG.png'),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 20,),
           
-          ElevatedButton(
+          
+         /* ElevatedButton(
             onPressed: (){}, 
             child: Text('Suscribirse'),
             style: ElevatedButton.styleFrom(
               elevation: 10,
               primary: AppTheme.primaryColor,
               fixedSize: Size(0, 40)
-            ),),
+            ),), */
           SizedBox(height: 20,),
         ],
       )

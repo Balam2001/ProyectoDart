@@ -26,14 +26,7 @@ class _ClubesScreenState extends State<ClubesScreen> {
           fontWeight: FontWeight.bold,
           fontSize: 25.0,
         ),
-        actions: [
-          IconButton(
-            onPressed: (){
-              Navigator.pushNamed(context, 'filtros');
-            },
-            icon: Icon(Icons.filter_alt)
-          )
-        ],
+        
       ),
       body: ListView(
         children: [

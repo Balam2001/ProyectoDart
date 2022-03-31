@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:merceria_fat/providers/providers.dart';
 import 'package:merceria_fat/themes/app_theme.dart';
 import 'package:merceria_fat/widgets/custom_form_field.dart';
 import 'package:http/http.dart';
+import 'package:provider/provider.dart';
 
 
 class RegistroScreen extends StatefulWidget {
@@ -23,6 +25,13 @@ class _RegistroScreenState extends State<RegistroScreen> {
     'contraseña' : ''
     };
 
+    Future<void> _submitForm() async{
+        final registerProvider = Provider.of<RegisterProvider>(context, listen: false);
+        var response = await registerProvider.postRegister(formValues);
+        if(response.statusCode == 201){
+          Navigator.pushNamed(context, 'login');
+        }
+    }
     
     final GlobalKey<FormState> myFormKey = GlobalKey<FormState>();
     return Scaffold(
@@ -127,22 +136,11 @@ class _RegistroScreenState extends State<RegistroScreen> {
                         ),
                         child: InkWell(
                           onTap: (){
-
-                            
-
                             bool isValidate = myFormKey.currentState?.validate() ?? false;
                             //Cuando tu formulario sea inconrrecto lanzar instruciones
                             if (isValidate) {
-                              // ignore: avoid_print
-
-                              Future<int> code = postRegister(formValues);
-                              if(postRegister(formValues) == 201){
-                                Navigator.pushNamed(context, 'login');
-                              }
-
+                              _submitForm();
                             }
-                            
-                          
 
                           },
                           
@@ -171,19 +169,4 @@ class _RegistroScreenState extends State<RegistroScreen> {
         ),
       );
   }
-}
-postRegister(Map formvalues) async {
-    const String endPoint = 'api/Ciudadano';
-    final String _host = 'apifat.somee.com';
-    final url = Uri.https(_host, endPoint);
-    Map<String, String> requestHeaders = {
-       'Content-type': 'application/json',
-       'Accept': 'application/json',
-     };
-
-    
-    Response response = await post(url, body: json.encode(formvalues), headers: requestHeaders);
-
-    int status = response.statusCode;
-    return status;
 }

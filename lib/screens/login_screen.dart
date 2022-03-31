@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:merceria_fat/models/Ciudadano.dart';
 import 'package:merceria_fat/themes/app_theme.dart';
 import 'package:merceria_fat/widgets/custom_form_field.dart';
+import 'package:provider/provider.dart';
 
+import '../providers/register_provider.dart';
+import 'home_screen.dart';
+import 'package:merceria_fat/main.dart';
 
 
 class LoginScreen extends StatefulWidget {
@@ -15,9 +20,17 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final Map<String, String> formValuesLogin = {
-      'Correo' : '',
-      'Contraseña' : ''
+      'correo' : '',
+      'contraseña' : ''
     };
+
+    Future<void> _submitForm() async{
+        final registerProvider = Provider.of<RegisterProvider>(context, listen: false);
+        var response = await registerProvider.logIn(formValuesLogin);
+        if(response != null){
+          Navigator.push(context, MaterialPageRoute(builder: (context, ) => HomeScreen(ciudadano: response)));
+        }
+    }
     final GlobalKey<FormState> myFormKey = GlobalKey<FormState>();
     
     return Scaffold(
@@ -62,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           hintText: 'Correo',
                           keyboardType: TextInputType.emailAddress,
                           prefixIcon: Icons.email,
-                          propertyName: 'Correo',
+                          propertyName: 'correo',
                           formValues: formValuesLogin,
                           textStyle: const TextStyle(
                             color: Colors.white
@@ -77,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           keyboardType: TextInputType.visiblePassword,
                           prefixIcon: Icons.password,
                           obscureText: true,
-                          propertyName: 'Contraseña',
+                          propertyName: 'contraseña',
                           formValues: formValuesLogin,
                           textStyle: const TextStyle(
                             color: Colors.white),
@@ -91,8 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               //Cuando tu formulario sea inconrrecto lanzar instruciones
                               if (isValidate) {
                                 // ignore: avoid_print
-                                print(formValuesLogin);
-                                Navigator.pushNamed(context,'home');
+                                _submitForm();
                               }
                         },
                         child: Container(

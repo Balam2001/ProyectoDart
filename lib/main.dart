@@ -20,10 +20,10 @@ class MyHttpOverrides extends HttpOverrides {
 
 class AppState extends StatelessWidget {
   const AppState({Key? key}) : super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {
-
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -36,6 +36,14 @@ class AppState extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => ServicioProvider(),
+          lazy: false,
+        ),
+        ChangeNotifierProvider(
+          create: (context) => RegisterProvider(),
+          lazy: false,
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SuscripcionProvider(),
           lazy: false,
         ),
       ],
@@ -92,7 +100,7 @@ class _MyAppState extends State<MyApp> {
                 })],
           
         ),
-        drawer: DrawerWidget(),
+        
         bottomNavigationBar: myBNB,
         body: NavBarRoutes(index: index) 
       ),

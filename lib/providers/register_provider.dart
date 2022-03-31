@@ -1,24 +1,49 @@
-/* import 'dart:convert';
-import 'dart:html';
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:http/retry.dart';
-import '../models/RequestRegister.dart';
+import 'package:http/http.dart' as http;
+import 'package:merceria_fat/models/Ciudadano.dart';
 
 class RegisterProvider extends ChangeNotifier
 {
-  final String _host ='apifat.somee.com';
-  int? statusCode;
-  RegisterProvider(String register){
-    postRegister(register);
+  
+
+  Future<http.Response>postRegister(Map formvalues) async {
+    const String endPoint = 'api/Ciudadano';
+    final String _host = 'apifat.somee.com';
+    final url = Uri.http(_host, endPoint);
+    Map<String, String> requestHeaders = {
+       'Content-type': 'application/json',
+       'Accept': 'application/json',
+     };
+    Response response = await post(url, body: json.encode(formvalues), headers: requestHeaders);
+    return response;  
+  
   }
 
-  postRegister(RequestRegister register) async {
-    const String endPoint = 'api/Ciudadano/';
-    String json = jsonEncode(register);
+  Future<Ciudadano?> logIn(Map formvalues) async {
+    const String endPoint = 'api/Login';
+    final String _host = 'apifat.somee.com';
     final url = Uri.http(_host, endPoint);
-    Response response = await post(url, body: json);
-    statusCode = response.statusCode;
+    Map<String, String> requestHeaders = {
+       'Content-type': 'application/json',
+       'Accept': 'application/json',
+     };
+    Response response = await post(url, body: json.encode(formvalues), headers: requestHeaders);
+    if(response.statusCode == 200){
+      String body = utf8.decode(response.bodyBytes);
+      Map<String, dynamic> user = jsonDecode(body);
+      Ciudadano cuenta = new Ciudadano.fromJson(user);
+      notifyListeners();
+      return cuenta;
     }
-  } */
+    else{
+      Ciudadano? cuenta;
+      return cuenta;
+    }
+    
+  
+  }
+
+    
+} 

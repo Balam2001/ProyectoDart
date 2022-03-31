@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:merceria_fat/models/Ciudadano.dart';
 import 'package:merceria_fat/models/Club.dart';
 import 'package:merceria_fat/models/Servicio.dart';
 import 'package:merceria_fat/screens/contactanos_screen.dart';
@@ -18,7 +19,7 @@ class AppRoutes{
   static final navOptions = <ItemMenu>[
     ItemMenu(label: 'Registro Usuario', route:'registro_usuario', icon: Icons.account_circle, screen: const RegistroScreen()),
     ItemMenu(label: 'Club', route: 'club_screen', icon: Icons.access_alarm_sharp, screen: ClubScreen(club: Club(nombre: '', logotipo: '', direccion: '', horario: '', latitud: 0, longitud: 0, id: 0, telefono: ''),)),
-    ItemMenu(label: 'Home', route: 'home', icon: Icons.house, screen: const HomeScreen()),
+    ItemMenu(label: 'Home', route: 'home', icon: Icons.house, screen: HomeScreen(ciudadano: Ciudadano(id: 0, nombres: '', apellidos: '', correo: '', contrasenia: ''),)),
     ItemMenu(label: 'Torneo', route: 'torneo', icon: Icons.person , screen: TorneoScreen(torneo: Torneo(id: 0, claveDisciplina: 0, disciplina: '', claveClub: 0, club: '', nombre: '', numeroEquipos: 0, numeroEquiposDisp: 0, costo: 0, reglas: '', rondas: 0, tipo: '', estado: false),)),
     ItemMenu(label: 'Filtros', route: 'filtros', icon: Icons.filter, screen:  FiltrosScreen()),
     ItemMenu(label: 'Servicio', route: 'servicio', icon: Icons.abc, screen: ServicioScreen(servicio: Servicio(claveClub: 0, club: '', id: 0, disciplina: '', claveDisciplina: 0, horario: '', numeroPersonas: 0, equipoEspecial: false, descEsquipoEspecial: '', persConCapacidad: false),)),

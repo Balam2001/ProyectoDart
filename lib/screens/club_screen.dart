@@ -118,14 +118,14 @@ class ClubScreen extends StatelessWidget {
             color: AppTheme.secundaryColor,
           ),
           Container(
-            height: 80,
+            height: 170,
             padding: EdgeInsets.only(left: 40, right: 40),
             child:  Container(
               child: ListView.separated(
                   itemBuilder: (context, index) => ListTile(
                     contentPadding: EdgeInsets.only(top: 20, left: 50),
                     title: Text(serviciosClub[index].disciplina),
-                    leading: FadeInImage.assetNetwork(placeholder: 'assets/images/404.png', image: 'https://img2.freepng.es/20180713/hog/kisspng-business-recreation-sport-camp-social-clip-art-sports-culture-festival-5b49419218e415.736910231531527570102.jpg',
+                    leading: FadeInImage.assetNetwork(placeholder: 'assets/images/404.png', image: 'https://www3.gobiernodecanarias.org/comercio/consumecanarias/wp-content/uploads/2021/05/logopordefecto_color-deporte.png',
                     ),
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context) => ServicioScreen(servicio: serviciosClub[index])));}),
@@ -151,7 +151,7 @@ class ClubScreen extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.only(left: 50, right: 50),
-            height: 80,
+            height: 170,
               child:
                 ListView.separated(
                   itemBuilder: (context, index) => ListTile(
