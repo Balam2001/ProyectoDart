@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:merceria_fat/providers/providers.dart';
 import 'package:merceria_fat/screens/screens.dart';
-import 'package:merceria_fat/screens/torneo_screen.dart';
 import 'package:merceria_fat/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 
@@ -121,26 +120,20 @@ class ClubScreen extends StatelessWidget {
             color: AppTheme.secundaryColor,
           ),
           Container(
+            height: 80,
             padding: EdgeInsets.only(left: 50, right: 50),
-            child:  Column(
-              children: [
-                ListView.separated(
+            child:  Container(
+              child: ListView.separated(
                   itemBuilder: (context, index) => ListTile(
                     contentPadding: EdgeInsets.only(top: 20, left: 50),
                     title: Text(serviciosClub[index].disciplina),
                     leading: FadeInImage.assetNetwork(placeholder: 'assets/images/404.png', image: 'https://cdn-icons-png.flaticon.com/512/3176/3176272.png'),
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => ServicioScreen(servicio: serviciosClub[index])));
-                      },
-                  ),
-                  separatorBuilder: (_,__) => Divider(
-                    height: 10,
-                  ),
-                  itemCount: serviciosClub.length)
-              ],
-            ),
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => ServicioScreen(servicio: serviciosClub[index])));}),
+                  separatorBuilder: (_,__) => Divider(height: 10,),
+                  itemCount: serviciosClub.length
+                )),
           ),
-          
           const SizedBox(height:40),
           Text(
             'Torneos',
@@ -159,8 +152,8 @@ class ClubScreen extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.only(left: 50, right: 50),
-            child: Column(
-              children: [
+            height: 80,
+              child:
                 ListView.separated(
                   itemBuilder: (context, index) => ListTile(
                     contentPadding: EdgeInsets.only(top: 20, left: 50),
@@ -174,13 +167,11 @@ class ClubScreen extends StatelessWidget {
                     height: 10,
                   ),
                   itemCount: torneosClub.length)
-              ],
+              
             ),
-          ),
           const SizedBox(height:40),
-          
-        ],
-      ),
+        ] 
+      )
     );
   }
 }

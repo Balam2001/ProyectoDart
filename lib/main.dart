@@ -1,9 +1,6 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:merceria_fat/models/RequestRegister.dart';
-import 'package:merceria_fat/models/Servicio.dart';
 import 'package:merceria_fat/providers/providers.dart';
 import 'package:merceria_fat/routes/navbar_routes.dart';
 import 'package:merceria_fat/models/theme_model.dart';
@@ -65,11 +62,11 @@ class _MyAppState extends State<MyApp> {
     });
     super.initState();
   }
-
+  
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
-    
+
     return ChangeNotifierProvider(
       create: (_) => ThemeModel(),
       child: Consumer<ThemeModel>(
@@ -94,9 +91,9 @@ class _MyAppState extends State<MyApp> {
                 })],
           
         ),
-        drawer: const DrawerWidget(),
+        drawer: DrawerWidget(),
         bottomNavigationBar: myBNB,
-        body: NavBarRoutes(index: index)
+        body: NavBarRoutes(index: index) 
       ),
       routes: AppRoutes.getRoutes(),
       theme: themeNotifier.isDark ? AppTheme.darkTheme : AppTheme.lightTheme,
@@ -106,4 +103,5 @@ class _MyAppState extends State<MyApp> {
     );
     
   }
+
 }

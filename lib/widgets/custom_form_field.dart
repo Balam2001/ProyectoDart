@@ -21,7 +21,7 @@ class CustomFormField extends StatelessWidget {
     this.autofocus=true,
     this.obscureText=false,
     this.keyboardType=TextInputType.name,
-    this.prefixIcon, 
+    this.prefixIcon,
     required this.propertyName, 
     required this.formValues,
   }) : super(key: key);
@@ -56,7 +56,7 @@ class CustomFormField extends StatelessWidget {
       keyboardType: !obscureText ? keyboardType : TextInputType.visiblePassword,
       decoration: InputDecoration(
         hintText: hintText,
-        prefixIcon: prefixIcon == null ? null : Icon(prefixIcon)
+        prefixIcon: prefixIcon == null ? null : Icon(prefixIcon),
       ),
       validator: (value) => validateNullOrEmpty(value),
       autovalidateMode: AutovalidateMode.onUserInteraction,

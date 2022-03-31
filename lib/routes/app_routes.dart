@@ -13,6 +13,7 @@ class AppRoutes{
     ItemMenu(label: 'Perfil', route: 'perfil', icon: Icons.person, screen: const PerfilUsuario()),
   ];
 
+
   static final navOptions = <ItemMenu>[
     ItemMenu(label: 'Registro Usuario', route:'registro_usuario', icon: Icons.account_circle, screen: const RegistroScreen()),
     ItemMenu(label: 'Club', route: 'club_screen', icon: Icons.access_alarm_sharp, screen: ClubScreen(club: Club(nombre: '', logotipo: '', direccion: '', horario: '', latitud: 0, longitud: 0, id: 0, telefono: ''),)),

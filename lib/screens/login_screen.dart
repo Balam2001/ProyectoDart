@@ -4,16 +4,22 @@ import 'package:merceria_fat/widgets/custom_form_field.dart';
 
 
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  @override
   Widget build(BuildContext context) {
-final Map<String, String> formValuesLogin = {
-    'Correo' : '',
-    'Contraseña' : ''
+    final Map<String, String> formValuesLogin = {
+      'Correo' : '',
+      'Contraseña' : ''
     };
     final GlobalKey<FormState> myFormKey = GlobalKey<FormState>();
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppTheme.primaryColor,
@@ -74,8 +80,9 @@ final Map<String, String> formValuesLogin = {
                           propertyName: 'Contraseña',
                           formValues: formValuesLogin,
                           textStyle: const TextStyle(
-                            color: Colors.white
-                          ))
+                            color: Colors.white),
+                          ),
+                          
                       ),
                       const SizedBox(height: 60.0,),
                       InkWell(

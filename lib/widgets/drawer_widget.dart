@@ -24,15 +24,30 @@ class _DraerWidgetState extends State<DrawerWidget> {
               ),
               SizedBox(
                 height: 500.0,
-                child: ListView.separated(
-                itemBuilder: (context, index) => ListTile(
-                  title: Text(AppRoutes.menuOptions[index].label),
-                  leading: Icon(AppRoutes.menuOptions[index].icon),
-                  onTap: () {
-                    Navigator.pushNamed(context, AppRoutes.menuOptions[index].route);}
-                ),
-                separatorBuilder: (context, index) => const Divider(),
-                itemCount: AppRoutes.countMenuOptions,
+                child: ListView(
+                  children :[
+                    ListTile(
+                      title: Text(AppRoutes.menuOptions[0].label),
+                      leading: Icon(AppRoutes.menuOptions[0].icon),
+                      onTap: () {
+                      Navigator.pushNamed(context, AppRoutes.menuOptions[0].route);
+                      }),
+                    Divider(
+                      ),
+                    ListTile(
+                    title: Text(AppRoutes.menuOptions[1].label),
+                    leading: Icon(AppRoutes.menuOptions[1].icon),
+                    onTap: () {
+                      Navigator.pushNamed(context, AppRoutes.menuOptions[1].route);}),
+                
+                    
+
+                    
+                    
+                    
+                  
+                    
+                ]
               ),
               )
             ],

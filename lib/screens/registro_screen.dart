@@ -1,13 +1,9 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:merceria_fat/providers/providers.dart';
 import 'package:merceria_fat/themes/app_theme.dart';
 import 'package:merceria_fat/widgets/custom_form_field.dart';
-import 'package:provider/provider.dart';
 import 'package:http/http.dart';
 
-import '../models/RequestRegister.dart';
 
 class RegistroScreen extends StatefulWidget {
   const RegistroScreen({Key? key}) : super(key: key);
