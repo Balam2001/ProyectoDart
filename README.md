@@ -1,6 +1,6 @@
 # FAT
 
-A new Flutter project.
+Este es un pequeño proyecto estudiantil realizado por Flutter.
 
 ## Getting Started
 
